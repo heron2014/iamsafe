@@ -21,7 +21,7 @@ export default ({ navigation }) => (
       <Button
         buttonStyle={{ marginTop: 20 }}
         backgroundColor="transparent"
-        textStyle={{ color: "#bcbec1" }}
+        textStyle={{ color: '#bcbec1' }}
         title="Sign In"
         onPress={() => navigation.navigate('SignIn')}
       />

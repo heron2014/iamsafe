@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
-
 import { SignedOut, SignedIn } from './router';
 
-
-export default class App extends React.Component {
+export default class App extends Component {
   constructor(props) {
     super(props);
 
@@ -16,8 +13,8 @@ export default class App extends React.Component {
 
   componentWillMount() {
     this.setState({
-       signedIn: true, checkedSignIn: true
-    })
+      signedIn: true, checkedSignIn: true
+    });
   }
 
   render() {
@@ -29,8 +26,7 @@ export default class App extends React.Component {
 
     if (signedIn) {
       return <SignedIn />;
-    } else {
-      return <SignedOut />;
     }
+    return <SignedOut />;
   }
 }

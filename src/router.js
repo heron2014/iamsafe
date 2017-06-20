@@ -1,7 +1,6 @@
 import React from 'react';
 import { Text } from 'react-native';
 import { StackNavigator, TabNavigator } from 'react-navigation';
-import { FontAwesome } from 'react-native-vector-icons';
 
 import SignUp from './screens/signup';
 import SignIn from './screens/signin';
@@ -12,13 +11,13 @@ export const SignedOut = StackNavigator({
   SignUp: {
     screen: SignUp,
     navigationOptions: {
-      title: "Sign Up"
+      title: 'Sign Up'
     }
   },
   SignIn: {
     screen: SignIn,
     navigationOptions: {
-      title: "Sign In"
+      title: 'Sign In'
     }
   }
 });
@@ -27,8 +26,8 @@ export const SignedIn = TabNavigator({
   Home: {
     screen: Home,
     navigationOptions: {
-      tabBarLabel: "Home",
-      tabBarIcon: ({ tintColor }) => (
+      tabBarLabel: 'Home',
+      tabBarIcon: () => (
         <Text>H</Text>
       )
     }
@@ -36,8 +35,8 @@ export const SignedIn = TabNavigator({
   Profile: {
     screen: Profile,
     navigationOptions: {
-      tabBarLabel: "Profile",
-      tabBarIcon: ({ tintColor }) => (
+      tabBarLabel: 'Profile',
+      tabBarIcon: () => (
         <Text>P</Text>
       )
     }
@@ -61,9 +60,9 @@ export const createRootNavigator = (signedIn = false) => {
       }
     },
     {
-      headerMode: "none",
-      mode: "modal",
-      initialRouteName: signedIn ? "SignedIn" : "SignedOut"
+      headerMode: 'none',
+      mode: 'modal',
+      initialRouteName: signedIn ? 'SignedIn' : 'SignedOut'
     }
   );
 };
