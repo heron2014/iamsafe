@@ -9,6 +9,8 @@ import Contacts from './screens/contacts';
 import Real from './screens/real';
 import Tester from './screens/tester';
 import Settings from './screens/settings';
+import Details from './screens/details';
+import { capitalizeFirstLetter } from './helpers/index';
 
 export const SignedOut = StackNavigator({
   SignUp: {
@@ -29,18 +31,16 @@ export const HomeStack = StackNavigator({
   Home: {
     screen: StackNavigator({
       Home: { screen: Home,
-        navigationOptions: ({ navigation }) => {
-          return {
-            title: 'Home',
-            headerRight: (
-              <Icon
-                name="ios-settings"
-                color="#404041"
-                size={40}
-                onPress={() => navigation.navigate('Settings')}
-              />)
-          };
-        }
+        navigationOptions: ({ navigation }) => ({
+          title: 'Home',
+          headerRight: (
+            <Icon
+              name="ios-settings"
+              color="#404041"
+              size={40}
+              onPress={() => navigation.navigate('Settings')}
+            />)
+        })
       },
       Real: { screen: Real,
         navigationOptions: {
@@ -65,6 +65,21 @@ export const HomeStack = StackNavigator({
   mode: 'modal'
 });
 
+export const ContactsStack = StackNavigator({
+  Contacts: {
+    screen: Contacts,
+    navigationOptions: {
+      title: 'Contacts'
+    }
+  },
+  Details: {
+    screen: Details,
+    navigationOptions: ({ navigation }) => ({
+      title: `${capitalizeFirstLetter(navigation.state.params.name.first)} ${capitalizeFirstLetter(navigation.state.params.name.last)}`
+    })
+  }
+});
+
 export const SignedIn = TabNavigator({
   Home: {
     screen: HomeStack,
@@ -80,7 +95,7 @@ export const SignedIn = TabNavigator({
     }
   },
   Contacts: {
-    screen: Contacts,
+    screen: ContactsStack,
     navigationOptions: {
       tabBarLabel: 'Contacts',
       tabBarIcon: ({ tintColor }) => (
