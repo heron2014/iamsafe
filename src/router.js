@@ -1,11 +1,14 @@
 import React from 'react';
-import { Text } from 'react-native';
 import { StackNavigator, TabNavigator } from 'react-navigation';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 import SignUp from './screens/signup';
 import SignIn from './screens/signin';
 import Home from './screens/home';
-import Profile from './screens/profile';
+import Contacts from './screens/contacts';
+import Real from './screens/real';
+import Tester from './screens/tester';
+import Settings from './screens/settings';
 
 export const SignedOut = StackNavigator({
   SignUp: {
@@ -22,22 +25,70 @@ export const SignedOut = StackNavigator({
   }
 });
 
+export const HomeStack = StackNavigator({
+  Home: {
+    screen: StackNavigator({
+      Home: { screen: Home,
+        navigationOptions: ({ navigation }) => {
+          return {
+            title: 'Home',
+            headerRight: (
+              <Icon
+                name="ios-settings"
+                color="#404041"
+                size={40}
+                onPress={() => navigation.navigate('Settings')}
+              />)
+          };
+        }
+      },
+      Real: { screen: Real,
+        navigationOptions: {
+          tabBarVisible: false
+        }
+      },
+      Tester: { screen: Tester,
+        navigationOptions: {
+          tabBarVisible: false
+        }
+      }
+    })
+  },
+  Settings: {
+    screen: Settings,
+    navigationOptions: {
+      tabBarVisible: false
+    }
+  }
+}, {
+  headerMode: 'none',
+  mode: 'modal'
+});
+
 export const SignedIn = TabNavigator({
   Home: {
-    screen: Home,
+    screen: HomeStack,
     navigationOptions: {
       tabBarLabel: 'Home',
-      tabBarIcon: () => (
-        <Text>H</Text>
+      tabBarIcon: ({ tintColor }) => (
+        <Icon
+          name="ios-home"
+          size={30}
+          color={tintColor}
+        />
       )
     }
   },
-  Profile: {
-    screen: Profile,
+  Contacts: {
+    screen: Contacts,
     navigationOptions: {
-      tabBarLabel: 'Profile',
-      tabBarIcon: () => (
-        <Text>P</Text>
+      tabBarLabel: 'Contacts',
+      tabBarIcon: ({ tintColor }) => (
+        <Icon
+          name="ios-contacts"
+          size={30}
+          color={tintColor}
+        />
       )
     }
   }

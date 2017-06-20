@@ -1,17 +1,8 @@
 import React from 'react';
 import { View } from 'react-native';
-import { Card, Button, Text } from 'react-native-elements';
-import { removeToken } from '../../helpers/auth';
+import { Card, Text } from 'react-native-elements';
 
-const handleOnPress = (navigation) => {
-  removeToken('user-token')
-  .then(() => {
-    navigation.navigate('SignedOut');
-  })
-  .catch(err => console.log('error on removing token', err));
-};
-
-export default ({ navigation }) => (
+export default () => (
   <View style={{ paddingVertical: 20 }}>
     <Card title="John Doe">
       <View
@@ -28,11 +19,6 @@ export default ({ navigation }) => (
       >
         <Text style={{ color: 'white', fontSize: 28 }}>JD</Text>
       </View>
-      <Button
-        backgroundColor="#03A9F4"
-        title="SIGN OUT"
-        onPress={() => handleOnPress(navigation)}
-      />
     </Card>
   </View>
 );
