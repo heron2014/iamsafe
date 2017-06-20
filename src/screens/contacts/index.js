@@ -1,24 +1,25 @@
-import React from 'react';
-import { View } from 'react-native';
-import { Card, Text } from 'react-native-elements';
+import React, { Component } from 'react';
+import { FlatList } from 'react-native';
+import contacts from '../../redux/data';
+import ListItem from './components/ListItem';
 
-export default () => (
-  <View style={{ paddingVertical: 20 }}>
-    <Card title="John Doe">
-      <View
-        style={{
-          backgroundColor: '#bcbec1',
-          alignItems: 'center',
-          justifyContent: 'center',
-          width: 80,
-          height: 80,
-          borderRadius: 40,
-          alignSelf: 'center',
-          marginBottom: 20
-        }}
-      >
-        <Text style={{ color: 'white', fontSize: 28 }}>JD</Text>
-      </View>
-    </Card>
-  </View>
-);
+class Contacts extends Component {
+  handleRowPress = (item) => {
+    console.log('item', item);
+    return null;
+  }
+  render() {
+    return (
+      <FlatList
+        style={{ backgroundColor: '#fff' }}
+        data={contacts}
+        renderItem={({ item }) =>
+          <ListItem contact={item} onPress={() => this.handleRowPress(item)} />
+        }
+        keyExtractor={item => item.phone}
+      />
+    );
+  }
+}
+
+export default Contacts;
