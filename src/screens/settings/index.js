@@ -1,6 +1,6 @@
 import React from 'react';
-import { View } from 'react-native';
-import { Card, Button, Text } from 'react-native-elements';
+import { View, Text } from 'react-native';
+import { Button, Card } from 'react-native-elements';
 import { removeToken } from '../../helpers/auth';
 
 const handleOnPress = (navigation) => {
@@ -28,11 +28,11 @@ export default ({ navigation }) => (
       >
         <Text style={{ color: 'white', fontSize: 28 }}>JD</Text>
       </View>
-      <Button
-        backgroundColor="#03A9F4"
-        title="SIGN OUT"
-        onPress={() => handleOnPress(navigation)}
-      />
     </Card>
+    <Button
+      backgroundColor="#03A9F4"
+      title="SIGN OUT"
+      onPress={() => handleOnPress(navigation)}
+    />
   </View>
 );
