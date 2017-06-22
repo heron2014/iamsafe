@@ -17,7 +17,7 @@ const ListItem = ({ contact, onPress }) => {
       <View style={styles.row}>
         <View>
           <Text style={styles.name}>{name}</Text>
-          <Text style={styles.phone}>{contact.phone_number}</Text>
+          <Text style={styles.phone}>{contact.mobile_number}</Text>
         </View>
         <View style={styles.chevronContainer}>
           <Icon

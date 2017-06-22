@@ -16,12 +16,16 @@ Contacts.getAll((err, data) => {
       obj.firstname = contact.givenName;
       obj.surname = contact.familyName;
       obj.mobile_number = contact.phoneNumbers.filter(number => number.label === 'mobile');
+      // TODO DO I need home number?
+      obj.home_number = contact.phoneNumbers.filter(number => number.label === 'home');
       obj.isSelected = false;
       return obj;
     }).filter((contact) => {
-      return contact.phone_number.length > 0;
+      return contact.mobile_number.length > 0;
     }).map((contact) => {
-      return Object.assign({}, contact, { phone_number: contact.phone_number[0].number });
+      const mobile_number = contact.mobile_number[0].number;
+      const home_number = contact.home_number[0] && contact.home_number[0].number;
+      return Object.assign({}, contact, { mobile_number, home_number });
     });
     store.dispatch(setContacts(contacts));
   }
