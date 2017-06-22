@@ -1,7 +1,8 @@
-export const FETCH_CONTACTS = 'FETCH_CONTACTS';
+export const SET_CONTACTS = 'SET_CONTACTS';
 
-export function fetchContacts() {
+export const setContacts = (data) => {
   return {
-    type: FETCH_CONTACTS
+    type: SET_CONTACTS,
+    data
   };
-}
+};

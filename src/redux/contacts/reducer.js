@@ -1,12 +1,18 @@
-
-// import data from '../data';
 import * as actions from './actions';
 
-const dataObj = ['hello', 'boom', 'yol'];
-export default function contacts(state = dataObj, action) {
+const initialState = {
+  contacts: []
+};
+
+export default function contacts(state = initialState, action) {
   switch (action.type) {
-    case actions.FETCH_CONTACTS:
-      return state;
+    case actions.SET_CONTACTS: {
+      const newContacts = [...action.data];
+      return {
+        ...state,
+        contacts: newContacts
+      };
+    }
     default:
       return state;
   }

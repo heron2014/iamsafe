@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 import { FlatList } from 'react-native';
-import contacts from '../../redux/data';
 import ListItem from './components/ListItem';
 
 class Contacts extends Component {
+
   handleRowPress = (item) => {
     this.props.navigation.navigate('Details', item);
   }
+
   render() {
+    const { contacts } = this.props.contacts;
     return (
       <FlatList
         style={{ backgroundColor: '#fff' }}

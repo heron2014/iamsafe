@@ -8,7 +8,7 @@ import colors from '../../colors';
 
 const ListItem = ({ contact, onPress }) => {
   const iconName = Platform.OS === 'ios' ? 'ios-arrow-forward' : 'md-arrow-forward';
-  const name = `${capitalizeFirstLetter(contact.name.first)} ${capitalizeFirstLetter(contact.name.last)}`;
+  const name = `${capitalizeFirstLetter(contact.firstname)} ${capitalizeFirstLetter(contact.surname)}`;
   return (
     <TouchableHighlight
       onPress={onPress}
@@ -17,7 +17,7 @@ const ListItem = ({ contact, onPress }) => {
       <View style={styles.row}>
         <View>
           <Text style={styles.name}>{name}</Text>
-          <Text style={styles.phone}>{contact.phone}</Text>
+          <Text style={styles.phone}>{contact.phone_number}</Text>
         </View>
         <View style={styles.chevronContainer}>
           <Icon

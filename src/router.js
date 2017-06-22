@@ -75,7 +75,7 @@ export const ContactsStack = StackNavigator({
   Details: {
     screen: Details,
     navigationOptions: ({ navigation }) => ({
-      title: `${capitalizeFirstLetter(navigation.state.params.name.first)} ${capitalizeFirstLetter(navigation.state.params.name.last)}`
+      title: `${capitalizeFirstLetter(navigation.state.params.firstname)} ${capitalizeFirstLetter(navigation.state.params.surname)}`
     })
   }
 });
