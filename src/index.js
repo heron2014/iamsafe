@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+import { Provider } from 'react-redux';
 import { AsyncStorage } from 'react-native';
+import store from './store';
 import { createRootNavigator } from './router';
 
 export default class App extends Component {
@@ -34,6 +36,10 @@ export default class App extends Component {
     //   return null;
     // }
     const Layout = createRootNavigator(signedIn);
-    return <Layout />;
+    return (
+      <Provider store={store}>
+        <Layout />
+      </Provider>
+    );
   }
 }

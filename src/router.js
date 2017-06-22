@@ -5,7 +5,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import SignUp from './screens/signup';
 import SignIn from './screens/signin';
 import Home from './screens/home';
-import Contacts from './screens/contacts';
+import Contacts from './screens/contacts/ContactsContainer';
 import Real from './screens/real';
 import Tester from './screens/tester';
 import Settings from './screens/settings';
