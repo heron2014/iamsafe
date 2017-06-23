@@ -13,6 +13,7 @@ const ListItem = ({ contact, onPress }) => {
     <TouchableHighlight
       onPress={onPress}
       underlayColor={colors.rowUnderlay}
+      key={Math.random()}
     >
       <View style={styles.row}>
         <View>

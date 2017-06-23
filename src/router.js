@@ -10,6 +10,8 @@ import Real from './screens/real';
 import Tester from './screens/tester';
 import Settings from './screens/settings';
 import Details from './screens/details';
+import MyList from './screens/my-list';
+
 import { capitalizeFirstLetter } from './helpers/index';
 
 export const SignedOut = StackNavigator({
@@ -66,6 +68,9 @@ export const HomeStack = StackNavigator({
 });
 
 export const ContactsStack = StackNavigator({
+  MyList: {
+    screen: MyList
+  },
   Contacts: {
     screen: Contacts,
     navigationOptions: {
@@ -94,7 +99,7 @@ export const SignedIn = TabNavigator({
       )
     }
   },
-  Contacts: {
+  MyList: {
     screen: ContactsStack,
     navigationOptions: {
       tabBarLabel: 'Contacts',
