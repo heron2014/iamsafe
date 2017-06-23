@@ -17,7 +17,7 @@ class Contacts extends Component {
         renderItem={({ item }) =>
           <ListItem contact={item} onPress={() => this.handleRowPress(item)} />
         }
-        keyExtractor={item => item.phone}
+        keyExtractor={item => item.mobile_number}
       />
     );
   }

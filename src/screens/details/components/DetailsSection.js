@@ -10,17 +10,10 @@ const DetailsSection = ({ mobile_number, home_number }) => (
     <Row
       label="mobile"
       body={toPhoneNumber(mobile_number)}
-      actions={[
-        { iconIOS: 'ios-call', iconAndroid: 'md-call' },
-        { iconIOS: 'ios-text', iconAndroid: 'md-text' }
-      ]}
     />
     <Row
       label="home"
       body={toPhoneNumber(home_number)}
-      actions={[
-        { iconIOS: 'ios-call', iconAndroid: 'md-call' }
-      ]}
     />
   </View>
 );
