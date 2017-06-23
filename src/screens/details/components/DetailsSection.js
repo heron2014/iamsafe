@@ -5,11 +5,11 @@ import styles from '../styles';
 import { toPhoneNumber } from '../../../helpers';
 import Row from './Row';
 
-const DetailsSection = ({ phone, mobile }) => (
+const DetailsSection = ({ mobile_number, home_number }) => (
   <View style={styles.actionContainer}>
     <Row
       label="mobile"
-      body={toPhoneNumber(mobile)}
+      body={toPhoneNumber(mobile_number)}
       actions={[
         { iconIOS: 'ios-call', iconAndroid: 'md-call' },
         { iconIOS: 'ios-text', iconAndroid: 'md-text' }
@@ -17,7 +17,7 @@ const DetailsSection = ({ phone, mobile }) => (
     />
     <Row
       label="home"
-      body={toPhoneNumber(phone)}
+      body={toPhoneNumber(home_number)}
       actions={[
         { iconIOS: 'ios-call', iconAndroid: 'md-call' }
       ]}

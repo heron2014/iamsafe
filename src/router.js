@@ -5,11 +5,13 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import SignUp from './screens/signup';
 import SignIn from './screens/signin';
 import Home from './screens/home';
-import Contacts from './screens/contacts';
+import Contacts from './screens/contacts/ContactsContainer';
 import Real from './screens/real';
 import Tester from './screens/tester';
 import Settings from './screens/settings';
 import Details from './screens/details';
+import MyList from './screens/my-list';
+
 import { capitalizeFirstLetter } from './helpers/index';
 
 export const SignedOut = StackNavigator({
@@ -66,6 +68,9 @@ export const HomeStack = StackNavigator({
 });
 
 export const ContactsStack = StackNavigator({
+  MyList: {
+    screen: MyList
+  },
   Contacts: {
     screen: Contacts,
     navigationOptions: {
@@ -75,7 +80,7 @@ export const ContactsStack = StackNavigator({
   Details: {
     screen: Details,
     navigationOptions: ({ navigation }) => ({
-      title: `${capitalizeFirstLetter(navigation.state.params.name.first)} ${capitalizeFirstLetter(navigation.state.params.name.last)}`
+      title: `${capitalizeFirstLetter(navigation.state.params.firstname)} ${capitalizeFirstLetter(navigation.state.params.surname)}`
     })
   }
 });
@@ -94,7 +99,7 @@ export const SignedIn = TabNavigator({
       )
     }
   },
-  Contacts: {
+  MyList: {
     screen: ContactsStack,
     navigationOptions: {
       tabBarLabel: 'Contacts',
