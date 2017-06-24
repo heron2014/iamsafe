@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import Contacts from './';
+import Contacts from './Contact';
 
 const mapStateToProps = ({ contacts }) => ({
   contacts
