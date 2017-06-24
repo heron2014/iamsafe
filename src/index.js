@@ -18,9 +18,7 @@ Contacts.getAll((err, data) => {
       obj.surname = contact.familyName;
       obj.phone_numbers = contact.phoneNumbers;
       obj.mobile_number = contact.phoneNumbers.filter(number => number.label === 'mobile');
-      // TODO DO I need home number?
       obj.home_number = contact.phoneNumbers.filter(number => number.label === 'home');
-      obj.isSelected = false;
       return obj;
     }).filter((contact) => {
       return contact.mobile_number.length > 0;

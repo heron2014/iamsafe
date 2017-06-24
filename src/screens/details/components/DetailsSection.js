@@ -28,8 +28,10 @@ class DetailsSection extends Component {
       surname: contact.surname,
       selectedPhoneNumber: selectedPhone[0]
     };
-    this.props.addContact(contactObj);
-    this.props.navigation.goBack(null);
+    if (contactObj.selectedPhoneNumber) {
+      this.props.addContact(contactObj);
+      this.props.navigation.goBack(null);
+    }
   };
 
   render() {
