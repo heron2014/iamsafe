@@ -1,7 +1,8 @@
 import * as actions from './actions';
 
 const initialState = {
-  contacts: []
+  contacts: [],
+  myList: []
 };
 
 export default function contacts(state = initialState, action) {
