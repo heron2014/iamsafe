@@ -1,6 +1,6 @@
 import { StyleSheet } from 'react-native';
 
-import colors from '../../colors';
+import colors from '../colors';
 
 export const CHEVRON_SIZE = 25;
 export default StyleSheet.create({
@@ -9,12 +9,6 @@ export default StyleSheet.create({
     alignItems: 'center',
     paddingHorizontal: 15,
     paddingVertical: 8
-  },
-  avatar: {
-    width: 40,
-    height: 40,
-    borderRadius: 20,
-    marginRight: 10
   },
   name: {
     fontSize: 16,

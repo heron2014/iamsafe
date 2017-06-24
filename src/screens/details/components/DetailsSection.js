@@ -23,6 +23,7 @@ class DetailsSection extends Component {
   handleAddToList = (contact, list) => {
     const selectedPhone = list.filter(obj => obj.selected);
     const contactObj = {
+      recordId: contact.recordId,
       firstname: contact.firstname,
       surname: contact.surname,
       selectedPhoneNumber: selectedPhone[0]
