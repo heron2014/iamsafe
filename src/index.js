@@ -13,6 +13,7 @@ Contacts.getAll((err, data) => {
   } else {
     const contacts = data.map((contact) => {
       const obj = {};
+      obj.recordId = contact.recordID;
       obj.firstname = contact.givenName;
       obj.surname = contact.familyName;
       obj.phone_numbers = contact.phoneNumbers;

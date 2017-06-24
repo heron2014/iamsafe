@@ -21,6 +21,11 @@ export default function contacts(state = initialState, action) {
         myList: state.myList.concat(newContact)
       };
     }
+    case actions.REMOVE_CONTACT:
+      return {
+        ...state,
+        myList: state.myList.filter(contact => contact.recordId !== action.data.recordId)
+      };
     default:
       return state;
   }

@@ -1,10 +1,9 @@
 import React from 'react';
 import { View, Text, TouchableHighlight, Platform } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
-
 import styles, { CHEVRON_SIZE } from './styles';
-import { capitalizeFirstLetter } from '../../../helpers';
-import colors from '../../colors';
+import { capitalizeFirstLetter } from '../../helpers';
+import colors from '../colors';
 
 const ListItem = ({ contact, onPress }) => {
   const iconName = Platform.OS === 'ios' ? 'ios-arrow-forward' : 'md-arrow-forward';
@@ -17,7 +16,7 @@ const ListItem = ({ contact, onPress }) => {
       <View style={styles.row}>
         <View>
           <Text style={styles.name}>{name}</Text>
-          <Text style={styles.phone}>{contact.mobile_number}</Text>
+          <Text style={styles.phone}>{contact.mobile_number || contact.selectedPhoneNumber.number}</Text>
         </View>
         <View style={styles.chevronContainer}>
           <Icon
