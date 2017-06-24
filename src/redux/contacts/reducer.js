@@ -14,6 +14,13 @@ export default function contacts(state = initialState, action) {
         contacts: newContacts
       };
     }
+    case actions.ADD_CONTACT: {
+      const newContact = action.data;
+      return {
+        ...state,
+        myList: state.myList.concat(newContact)
+      };
+    }
     default:
       return state;
   }

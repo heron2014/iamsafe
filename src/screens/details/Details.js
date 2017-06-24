@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { View } from 'react-native';
-import DetailsSection from './components/DetailsSection';
+import DetailsSectionContainer from './components/DetailsSectionContainer';
 
 // eslint-disable-next-line
 class Details extends Component {
@@ -8,7 +8,7 @@ class Details extends Component {
     const contact = this.props.navigation.state.params;
     return (
       <View style={{ paddingVertical: 20, flex: 1 }}>
-        <DetailsSection {...contact} />
+        <DetailsSectionContainer {...contact} navigation={this.props.navigation} />
       </View>
     );
   }
