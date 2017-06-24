@@ -6,10 +6,6 @@ import { toPhoneNumber } from '../../../helpers';
 import Row from './Row';
 import RadioButton from './RadioButton';
 
-const handleAddToList = (contact) => {
-  console.log('contact inside', contact);
-};
-
 class DetailsSection extends Component {
   constructor(props) {
     super(props);
@@ -20,7 +16,21 @@ class DetailsSection extends Component {
     this.state = {
       phone_numbers
     };
+
+    this.handleAddToList = this.handleAddToList.bind(this);
   }
+
+  handleAddToList = (contact, list) => {
+    const selectedPhone = list.filter(obj => obj.selected);
+    const contactObj = {
+      firstname: contact.firstname,
+      surname: contact.surname,
+      selectedPhoneNumber: selectedPhone[0]
+    };
+    this.props.addContact(contactObj);
+    this.props.navigation.goBack(null);
+  };
+
   render() {
     const contact = this.props;
     return (
@@ -34,7 +44,6 @@ class DetailsSection extends Component {
                 obj.selected = !value;
               }
             });
-            console.log('SELECTED PHONE', phone);
             this.setState({ phone_numbers: this.state.phone_numbers });
           };
 
@@ -53,12 +62,11 @@ class DetailsSection extends Component {
         <Button
           backgroundColor="#03A9F4"
           title="Add my list"
-          onPress={() => handleAddToList(contact) }
+          onPress={() => this.handleAddToList(contact, this.state.phone_numbers) }
         />
       </View>
     );
   }
 }
-
 
 export default DetailsSection;

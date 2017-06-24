@@ -15,8 +15,16 @@ class MyList extends Component {
   })
 
   render() {
+    const { myList } = this.props;
     return (
-      <View><Text>My List</Text></View>
+      <View>
+        {myList.length > 0
+          ? myList.map(obj => (
+            <Text key={Math.random()}>{obj.firstname}</Text>
+          ))
+          : <Text>Create your list by clicking the plus icon the top</Text>
+        }
+      </View>
     );
   }
 }
