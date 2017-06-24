@@ -1,11 +1,11 @@
 import { StyleSheet } from 'react-native';
 
-import colors from '../colors';
+import colors from '../../colors';
 
 export const ICON_SIZE = 25;
 
 export default StyleSheet.create({
-  actionContainer: {
+  container: {
     borderTopWidth: StyleSheet.hairlineWidth,
     borderTopColor: colors.border,
     borderBottomColor: colors.border,
@@ -13,20 +13,9 @@ export default StyleSheet.create({
     paddingVertical: 15,
     backgroundColor: colors.grayBackground
   },
-  actionRow: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    paddingHorizontal: 20
-  },
   actionInfo: {
-    flexDirection: 'column'
-  },
-  actionIcons: {
-    flexDirection: 'row'
-  },
-  actionIcon: {
-    marginLeft: 13
+    flexDirection: 'column',
+    justifyContent: 'center'
   },
   actionLabel: {
     color: colors.subtleText,
@@ -37,8 +26,5 @@ export default StyleSheet.create({
     fontSize: 16,
     color: colors.primaryText,
     marginBottom: 5
-  },
-  infoContainer: {
-    paddingVertical: 15
   }
 });

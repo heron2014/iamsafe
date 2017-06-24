@@ -15,6 +15,7 @@ Contacts.getAll((err, data) => {
       const obj = {};
       obj.firstname = contact.givenName;
       obj.surname = contact.familyName;
+      obj.phone_numbers = contact.phoneNumbers;
       obj.mobile_number = contact.phoneNumbers.filter(number => number.label === 'mobile');
       // TODO DO I need home number?
       obj.home_number = contact.phoneNumbers.filter(number => number.label === 'home');
@@ -25,7 +26,10 @@ Contacts.getAll((err, data) => {
     }).map((contact) => {
       const mobile_number = contact.mobile_number[0].number;
       const home_number = contact.home_number[0] && contact.home_number[0].number;
-      return Object.assign({}, contact, { mobile_number, home_number });
+      return Object.assign({}, contact, {
+        mobile_number,
+        home_number
+      });
     });
     store.dispatch(setContacts(contacts));
   }
