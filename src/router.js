@@ -1,4 +1,5 @@
 import React from 'react';
+import { Platform } from 'react-native';
 import { StackNavigator, TabNavigator } from 'react-navigation';
 import Icon from 'react-native-vector-icons/Ionicons';
 
@@ -42,13 +43,16 @@ export const HomeStack = StackNavigator({
           headerLeft: (
             <Icon
               style={{ paddingLeft: 8 }}
-              name="ios-settings"
+              name={Platform.OS === 'ios' ? 'ios-settings' : 'md-settings'}
               color="#5b5a5a"
               size={30}
               onPress={() => navigation.navigate('Settings')}
             />),
+          headerTintColor: colors.darkGray,
           headerStyle: {
-            backgroundColor: '#fff'
+            backgroundColor: '#fff',
+            shadowOpacity: 1,
+            shadowColor: colors.green
           }
         })
       },
@@ -82,13 +86,25 @@ export const ContactsStack = StackNavigator({
   Contacts: {
     screen: Contacts,
     navigationOptions: {
-      title: 'Contacts'
+      title: 'Contacts',
+      headerTintColor: colors.darkGray,
+      headerStyle: {
+        backgroundColor: '#fff',
+        shadowOpacity: 1,
+        shadowColor: colors.green
+      }
     }
   },
   Details: {
     screen: Details,
     navigationOptions: ({ navigation }) => ({
-      title: `${capitalizeFirstLetter(navigation.state.params.firstname)} ${capitalizeFirstLetter(navigation.state.params.surname)}`
+      title: `${capitalizeFirstLetter(navigation.state.params.firstname)} ${capitalizeFirstLetter(navigation.state.params.surname)}`,
+      headerTintColor: colors.darkGray,
+      headerStyle: {
+        backgroundColor: '#fff',
+        shadowOpacity: 1,
+        shadowColor: colors.green
+      }
     })
   }
 });
@@ -100,7 +116,7 @@ export const SignedIn = TabNavigator({
       tabBarLabel: 'Home',
       tabBarIcon: ({ tintColor }) => (
         <Icon
-          name="ios-home"
+          name={Platform.OS === 'ios' ? 'ios-home' : 'md-home'}
           size={30}
           color={tintColor}
         />
@@ -113,11 +129,19 @@ export const SignedIn = TabNavigator({
       tabBarLabel: 'My List',
       tabBarIcon: ({ tintColor }) => (
         <Icon
-          name="ios-contacts"
+          name={Platform.OS === 'ios' ? 'ios-contacts' : 'md-contacts'}
           size={30}
           color={tintColor}
         />
       )
+    }
+  }
+}, {
+  tabBarOptions: {
+    activeTintColor: colors.green,
+    style: {
+      backgroundColor: '#fff',
+      borderTopColor: colors.green
     }
   }
 });
