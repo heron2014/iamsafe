@@ -15,7 +15,7 @@ class Contacts extends Component {
       <View
         style={{
           height: 1,
-          backgroundColor: colors.lightGreen
+          backgroundColor: colors.purple
         }}
       />
     );

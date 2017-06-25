@@ -44,7 +44,7 @@ export const HomeStack = StackNavigator({
             <Icon
               style={{ paddingLeft: 8 }}
               name={Platform.OS === 'ios' ? 'ios-settings' : 'md-settings'}
-              color="#5b5a5a"
+              color={colors.darkGray}
               size={30}
               onPress={() => navigation.navigate('Settings')}
             />),

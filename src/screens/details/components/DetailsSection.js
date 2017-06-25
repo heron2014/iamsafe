@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { View, TouchableOpacity } from 'react-native';
-import { Button } from 'react-native-elements';
+import { View, TouchableOpacity, Text } from 'react-native';
+import { Button, Card } from 'react-native-elements';
 import styles from './styles';
+import colors from '../../colors';
 import { toPhoneNumber } from '../../../helpers';
 import Row from './Row';
 import RadioButton from './RadioButton';
@@ -37,7 +38,8 @@ class DetailsSection extends Component {
   render() {
     const contact = this.props;
     return (
-      <View style={styles.container}>
+      <View style={[styles.container, { justifyContent: 'center' }]}>
+        <Text style={styles.infoText}>Please pick only mobile number.</Text>
         {this.state.phone_numbers.map((phone) => {
           const selectedBox = (value) => {
             const copyState = [...this.state.phone_numbers];
@@ -51,20 +53,24 @@ class DetailsSection extends Component {
           };
 
           return (
-            <TouchableOpacity onPress={() => selectedBox(!phone.selected)} key={phone.number}>
-              <View style={{ flexDirection: 'row', marginLeft: 10 }}>
-                <RadioButton selected={phone.selected} />
-                <Row
-                  label={phone.label}
-                  body={toPhoneNumber(phone.number)}
-                />
-              </View>
-            </TouchableOpacity>
+            <Card key={phone.number} containerStyle={styles.cardStyle}>
+              <TouchableOpacity onPress={() => selectedBox(!phone.selected)} >
+                <View style={{ flexDirection: 'row', marginLeft: 10 }}>
+                  <RadioButton selected={phone.selected} />
+                  <Row
+                    label={phone.label}
+                    body={toPhoneNumber(phone.number)}
+                  />
+                </View>
+              </TouchableOpacity>
+            </Card>
           );
         })}
         <Button
-          backgroundColor="#03A9F4"
-          title="Add my list"
+          buttonStyle={styles.button}
+          backgroundColor={colors.green}
+          textStyle={{ fontWeight: 'bold' }}
+          title="Add to My List"
           onPress={() => this.handleAddToList(contact, this.state.phone_numbers) }
         />
       </View>

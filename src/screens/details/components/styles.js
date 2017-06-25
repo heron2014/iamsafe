@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Platform } from 'react-native';
 
 import colors from '../../colors';
 
@@ -6,12 +6,15 @@ export const ICON_SIZE = 25;
 
 export default StyleSheet.create({
   container: {
-    borderTopWidth: StyleSheet.hairlineWidth,
-    borderTopColor: colors.border,
-    borderBottomColor: colors.border,
-    borderBottomWidth: StyleSheet.hairlineWidth,
-    paddingVertical: 15,
-    backgroundColor: colors.grayBackground
+    flex: 1,
+    backgroundColor: colors.lightGrayBackground
+  },
+  infoText: {
+    color: colors.green,
+    textAlign: 'center',
+    fontWeight: 'bold',
+    fontFamily: 'Helvetica-Bold',
+    fontSize: 20
   },
   actionInfo: {
     flexDirection: 'column',
@@ -26,5 +29,24 @@ export default StyleSheet.create({
     fontSize: 16,
     color: colors.primaryText,
     marginBottom: 5
+  },
+  cardStyle: {
+    borderRadius: 10,
+    borderColor: colors.green
+  },
+  button: {
+    ...Platform.select({
+      ios: {
+        shadowColor: 'rgba(0,0,0, 0.4)',
+        shadowOffset: { height: 1, width: 1 },
+        shadowOpacity: 1,
+        shadowRadius: 1
+      },
+      android: {
+        elevation: 2
+      }
+    }),
+    marginTop: 30,
+    borderRadius: 30
   }
 });

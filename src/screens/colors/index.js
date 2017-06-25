@@ -7,8 +7,11 @@ export default {
   grayBackground: '#f2f3f7',
   lightGrayBackground: '#f7f8fc',
   rowUnderlay: 'rgba(154, 154, 154, 0.25)',
-  green: '#99CC00',
+  green: '#44b73c',
   darkGray: '#5b5a5a',
   lightGray: '#c6c6c6',
-  lightGreen: '#cae871'
+  lightGreen: '#cae871',
+  yellow: '#E3B402',
+  purple: '#a677aa',
+  red: '#E16359'
 };

@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { View } from 'react-native';
-import { Button } from 'react-native-elements';
+import { Button, Card } from 'react-native-elements';
 import styles from './styles';
 import { toPhoneNumber } from '../../../helpers';
 import Row from './Row';
+import colors from '../../colors';
 
 class DetailsListItem extends Component {
   constructor(props) {
@@ -19,16 +20,20 @@ class DetailsListItem extends Component {
   render() {
     const contact = this.props;
     return (
-      <View style={styles.container}>
-        <View style={{ flexDirection: 'row', marginLeft: 10 }}>
-          <Row
-            label={contact.selectedPhoneNumber.label}
-            body={toPhoneNumber(contact.selectedPhoneNumber.number)}
-          />
-        </View>
+      <View style={[styles.container, { justifyContent: 'center' }]}>
+        <Card containerStyle={[styles.cardStyle, { borderColor: colors.red }]}>
+          <View style={{ flexDirection: 'row', marginLeft: 10 }}>
+            <Row
+              label={contact.selectedPhoneNumber.label}
+              body={toPhoneNumber(contact.selectedPhoneNumber.number)}
+            />
+          </View>
+        </Card>
         <Button
-          backgroundColor="#03A9F4"
-          title="Remove from list"
+          buttonStyle={styles.button}
+          backgroundColor={colors.red}
+          textStyle={{ fontWeight: 'bold' }}
+          title="Remove from My List"
           onPress={() => this.handleRemoveFromList(contact)}
         />
       </View>
