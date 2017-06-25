@@ -23,7 +23,7 @@ const ListItem = ({ contact, onPress }) => {
             name={iconName}
             size={CHEVRON_SIZE}
             style={styles.chevron}
-            color={colors.subtleText}
+            color={colors.green}
           />
         </View>
       </View>

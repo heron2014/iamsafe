@@ -3,7 +3,7 @@ import colors from '../colors';
 
 export default StyleSheet.create({
   container: {
-    backgroundColor: colors.grayBackground,
+    backgroundColor: colors.lightGrayBackground,
     flex: 1
   },
   textContainer: {
@@ -17,5 +17,11 @@ export default StyleSheet.create({
     fontSize: 20,
     marginTop: 20,
     fontFamily: 'Helvetica-Bold'
+  },
+  flatListContainer: {
+    backgroundColor: '#fff',
+    marginHorizontal: 10,
+    marginVertical: 10,
+    borderRadius: 10
   }
 });

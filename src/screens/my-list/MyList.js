@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, Platform } from 'react-native';
+import { View, Text, Platform, FlatList } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import ListItem from '../common/ListItem';
 import styles from './styles';
@@ -27,22 +27,41 @@ class MyList extends Component {
   constructor(props) {
     super(props);
     this.handleRowPress = this.handleRowPress.bind(this);
+    this.renderSeparator = this.renderSeparator.bind(this);
   }
 
   handleRowPress = (item) => {
     this.props.navigation.navigate('Details', item);
   }
 
+  renderSeparator = () => {
+    return (
+      <View
+        style={{
+          height: 1,
+          backgroundColor: colors.lightGreen
+        }}
+      />
+    );
+  };
+
   render() {
     const { myList } = this.props;
+    const backgroundColor = myList.length > 0 ? colors.green : colors.lightGrayBackground;
     return (
-      <View style={styles.container}>
+      <View style={[styles.container, { backgroundColor }]}>
         {myList.length > 0
-          ? myList.map(contact => (
-            <ListItem key={contact.recordId} contact={contact} onPress={() => this.handleRowPress(contact)} />
-          ))
+          ? <FlatList
+            style={styles.flatListContainer}
+            data={myList}
+            renderItem={({ item }) =>
+              <ListItem key={item.recordId} contact={item} onPress={() => this.handleRowPress(item)} />
+            }
+            keyExtractor={item => item.recordId}
+            ItemSeparatorComponent={this.renderSeparator}
+          />
           : <View style={styles.textContainer}>
-            <Text style={styles.textStyle}>Your list is empty. Create by clicking the plus icon at the top.</Text>
+            <Text style={styles.textStyle}>Your list is empty. Create one by clicking the &quot;plus&quot; icon at the top.</Text>
           </View>
         }
       </View>
