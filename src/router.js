@@ -2,6 +2,7 @@ import React from 'react';
 import { StackNavigator, TabNavigator } from 'react-navigation';
 import Icon from 'react-native-vector-icons/Ionicons';
 
+import colors from './screens/colors';
 import SignUp from './screens/signup';
 import SignIn from './screens/signin';
 import Home from './screens/home';
@@ -18,13 +19,16 @@ export const SignedOut = StackNavigator({
   SignUp: {
     screen: SignUp,
     navigationOptions: {
-      title: 'Sign Up'
+      header: false
     }
   },
   SignIn: {
     screen: SignIn,
     navigationOptions: {
-      title: 'Sign In'
+      headerStyle: {
+        backgroundColor: colors.grayBackground,
+        shadowOpacity: 0 // border
+      }
     }
   }
 });
@@ -35,13 +39,17 @@ export const HomeStack = StackNavigator({
       Home: { screen: Home,
         navigationOptions: ({ navigation }) => ({
           title: 'Home',
-          headerRight: (
+          headerLeft: (
             <Icon
+              style={{ paddingLeft: 8 }}
               name="ios-settings"
-              color="#404041"
-              size={40}
+              color="#5b5a5a"
+              size={30}
               onPress={() => navigation.navigate('Settings')}
-            />)
+            />),
+          headerStyle: {
+            backgroundColor: '#fff'
+          }
         })
       },
       Real: { screen: Real,
@@ -102,7 +110,7 @@ export const SignedIn = TabNavigator({
   MyList: {
     screen: ContactsStack,
     navigationOptions: {
-      tabBarLabel: 'Contacts',
+      tabBarLabel: 'My List',
       tabBarIcon: ({ tintColor }) => (
         <Icon
           name="ios-contacts"
