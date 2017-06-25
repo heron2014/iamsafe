@@ -12,16 +12,16 @@ class MyList extends Component {
       <Icon
         style={{ paddingRight: 8 }}
         name={Platform.OS === 'ios' ? 'ios-add-circle-outline' : 'md-add-circle'}
-        color="#5b5a5a"
-        size={30}
+        color="#fff"
+        size={33}
         onPress={() => navigation.navigate('Contacts')}
       />),
     headerStyle: {
-      backgroundColor: '#fff',
+      backgroundColor: colors.green,
       shadowOpacity: 1,
       shadowColor: colors.green
     },
-    headerTintColor: colors.darkGray
+    headerTintColor: '#fff'
   });
 
   constructor(props) {
@@ -51,9 +51,8 @@ class MyList extends Component {
 
   render() {
     const { myList } = this.props;
-    const backgroundColor = myList.length > 0 ? colors.green : colors.lightGrayBackground;
     return (
-      <View style={[styles.container, { backgroundColor }]}>
+      <View style={[styles.container]}>
         {myList.length > 0
           ? <FlatList
             style={styles.flatListContainer}

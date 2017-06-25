@@ -92,23 +92,23 @@ export const ContactsStack = StackNavigator({
     screen: Contacts,
     navigationOptions: {
       title: 'Contacts',
-      headerTintColor: colors.darkGray,
+      headerTintColor: '#fff',
       headerStyle: {
-        backgroundColor: '#fff',
+        backgroundColor: colors.purple,
         shadowOpacity: 1,
-        shadowColor: colors.green
+        shadowColor: colors.purple
       }
     }
   },
   Details: {
     screen: Details,
-    navigationOptions: ({ navigation }) => ({
-      title: `${capitalizeFirstLetter(navigation.state.params.firstname)} ${capitalizeFirstLetter(navigation.state.params.surname)}`,
-      headerTintColor: colors.darkGray,
+    navigationOptions: () => ({
+      // title: `${capitalizeFirstLetter(navigation.state.params.firstname)} ${capitalizeFirstLetter(navigation.state.params.surname)}`,
+      headerTintColor: '#fff',
       headerStyle: {
-        backgroundColor: '#fff',
-        shadowOpacity: 1,
-        shadowColor: colors.green
+        backgroundColor: colors.purple,
+        shadowOpacity: 0,
+        shadowColor: colors.purple
       }
     })
   }

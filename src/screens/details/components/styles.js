@@ -7,14 +7,21 @@ export const ICON_SIZE = 25;
 export default StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: colors.lightGrayBackground
+    backgroundColor: colors.purple
   },
   infoText: {
-    color: colors.green,
+    color: '#fff',
     textAlign: 'center',
     fontWeight: 'bold',
     fontFamily: 'Helvetica-Bold',
     fontSize: 20
+  },
+  nameStyle: {
+    color: '#fff',
+    textAlign: 'center',
+    fontWeight: 'bold',
+    fontFamily: 'Helvetica-Bold',
+    fontSize: 30
   },
   actionInfo: {
     flexDirection: 'column',
@@ -32,7 +39,7 @@ export default StyleSheet.create({
   },
   cardStyle: {
     borderRadius: 10,
-    borderColor: colors.green
+    borderColor: colors.purple
   },
   button: {
     ...Platform.select({

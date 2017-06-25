@@ -3,7 +3,7 @@ import { View, TouchableOpacity, Text } from 'react-native';
 import { Button, Card } from 'react-native-elements';
 import styles from './styles';
 import colors from '../../colors';
-import { toPhoneNumber } from '../../../helpers';
+import { toPhoneNumber, formatName } from '../../../helpers';
 import Row from './Row';
 import RadioButton from './RadioButton';
 
@@ -38,41 +38,46 @@ class DetailsSection extends Component {
   render() {
     const contact = this.props;
     return (
-      <View style={[styles.container, { justifyContent: 'center' }]}>
-        <Text style={styles.infoText}>Please pick only mobile number.</Text>
-        {this.state.phone_numbers.map((phone) => {
-          const selectedBox = (value) => {
-            const copyState = [...this.state.phone_numbers];
-            phone.selected = value;
-            copyState.map((obj) => {
-              if (obj.number !== phone.number) {
-                obj.selected = !value;
-              }
-            });
-            this.setState({ phone_numbers: this.state.phone_numbers });
-          };
+      <View style={styles.container}>
+        <View style={{ marginTop: 50 }}>
+          <Text style={styles.nameStyle}>{formatName(contact)}</Text>
+        </View>
+        <View style={{ flex: 1, justifyContent: 'center' }}>
+          <Text style={styles.infoText}>Please pick only mobile number.</Text>
+          {this.state.phone_numbers.map((phone) => {
+            const selectedBox = (value) => {
+              const copyState = [...this.state.phone_numbers];
+              phone.selected = value;
+              copyState.map((obj) => {
+                if (obj.number !== phone.number) {
+                  obj.selected = !value;
+                }
+              });
+              this.setState({ phone_numbers: this.state.phone_numbers });
+            };
 
-          return (
-            <Card key={phone.number} containerStyle={styles.cardStyle}>
-              <TouchableOpacity onPress={() => selectedBox(!phone.selected)} >
-                <View style={{ flexDirection: 'row', marginLeft: 10 }}>
-                  <RadioButton selected={phone.selected} />
-                  <Row
-                    label={phone.label}
-                    body={toPhoneNumber(phone.number)}
-                  />
-                </View>
-              </TouchableOpacity>
-            </Card>
-          );
-        })}
-        <Button
-          buttonStyle={styles.button}
-          backgroundColor={colors.green}
-          textStyle={{ fontWeight: 'bold' }}
-          title="Add to My List"
-          onPress={() => this.handleAddToList(contact, this.state.phone_numbers) }
-        />
+            return (
+              <Card key={phone.number} containerStyle={styles.cardStyle}>
+                <TouchableOpacity onPress={() => selectedBox(!phone.selected)} >
+                  <View style={{ flexDirection: 'row', marginLeft: 10 }}>
+                    <RadioButton selected={phone.selected} />
+                    <Row
+                      label={phone.label}
+                      body={toPhoneNumber(phone.number)}
+                    />
+                  </View>
+                </TouchableOpacity>
+              </Card>
+            );
+          })}
+          <Button
+            buttonStyle={styles.button}
+            backgroundColor={colors.green}
+            textStyle={{ fontWeight: 'bold' }}
+            title="Add to My List"
+            onPress={() => this.handleAddToList(contact, this.state.phone_numbers) }
+          />
+        </View>
       </View>
     );
   }

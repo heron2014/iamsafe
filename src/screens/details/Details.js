@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View } from 'react-native';
+import { ScrollView } from 'react-native';
 import DetailsSectionContainer from './components/DetailsSectionContainer';
 import styles from './styles';
 
@@ -9,9 +9,9 @@ class Details extends Component {
     const contact = this.props.navigation.state.params;
 
     return (
-      <View style={styles.container}>
+      <ScrollView style={styles.container}>
         <DetailsSectionContainer {...contact} navigation={this.props.navigation} />
-      </View>
+      </ScrollView>
     );
   }
 }

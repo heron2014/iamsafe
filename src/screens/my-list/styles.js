@@ -3,12 +3,16 @@ import colors from '../colors';
 
 export default StyleSheet.create({
   container: {
-    backgroundColor: colors.lightGrayBackground,
+    backgroundColor: colors.green,
     flex: 1
   },
   textContainer: {
     flex: 1,
-    justifyContent: 'center'
+    justifyContent: 'center',
+    marginHorizontal: 10,
+    marginVertical: 10,
+    backgroundColor: '#fff',
+    borderRadius: 10
   },
   textStyle: {
     textAlign: 'center',
