@@ -14,7 +14,7 @@ import Settings from './screens/settings';
 import Details from './screens/details';
 import MyList from './screens/my-list';
 
-import { capitalizeFirstLetter } from './helpers/index';
+// import { capitalizeFirstLetter } from './helpers/index';
 
 export const SignedOut = StackNavigator({
   SignUp: {
@@ -44,26 +44,36 @@ export const HomeStack = StackNavigator({
             <Icon
               style={{ paddingLeft: 8 }}
               name={Platform.OS === 'ios' ? 'ios-settings' : 'md-settings'}
-              color="#5b5a5a"
+              color="#fff"
               size={30}
               onPress={() => navigation.navigate('Settings')}
             />),
-          headerTintColor: colors.darkGray,
+          headerTintColor: '#fff',
           headerStyle: {
-            backgroundColor: '#fff',
-            shadowOpacity: 1,
+            backgroundColor: colors.purple,
+            shadowOpacity: 0,
             shadowColor: colors.green
           }
         })
       },
       Real: { screen: Real,
         navigationOptions: {
-          tabBarVisible: false
+          tabBarVisible: false,
+          headerTintColor: '#fff',
+          headerStyle: {
+            backgroundColor: '#8fc491',
+            shadowOpacity: 0
+          }
         }
       },
       Tester: { screen: Tester,
         navigationOptions: {
-          tabBarVisible: false
+          tabBarVisible: false,
+          headerTintColor: colors.purple,
+          headerStyle: {
+            backgroundColor: colors.lightGray,
+            shadowOpacity: 0
+          }
         }
       }
     })
@@ -87,23 +97,23 @@ export const ContactsStack = StackNavigator({
     screen: Contacts,
     navigationOptions: {
       title: 'Contacts',
-      headerTintColor: colors.darkGray,
+      headerTintColor: '#fff',
       headerStyle: {
-        backgroundColor: '#fff',
+        backgroundColor: colors.purple,
         shadowOpacity: 1,
-        shadowColor: colors.green
+        shadowColor: colors.purple
       }
     }
   },
   Details: {
     screen: Details,
-    navigationOptions: ({ navigation }) => ({
-      title: `${capitalizeFirstLetter(navigation.state.params.firstname)} ${capitalizeFirstLetter(navigation.state.params.surname)}`,
-      headerTintColor: colors.darkGray,
+    navigationOptions: () => ({
+      // title: `${capitalizeFirstLetter(navigation.state.params.firstname)} ${capitalizeFirstLetter(navigation.state.params.surname)}`,
+      headerTintColor: '#fff',
       headerStyle: {
-        backgroundColor: '#fff',
-        shadowOpacity: 1,
-        shadowColor: colors.green
+        backgroundColor: colors.purple,
+        shadowOpacity: 0,
+        shadowColor: colors.purple
       }
     })
   }

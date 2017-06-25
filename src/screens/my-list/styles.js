@@ -3,12 +3,16 @@ import colors from '../colors';
 
 export default StyleSheet.create({
   container: {
-    backgroundColor: colors.grayBackground,
+    backgroundColor: colors.green,
     flex: 1
   },
   textContainer: {
     flex: 1,
-    justifyContent: 'center'
+    justifyContent: 'center',
+    marginHorizontal: 10,
+    marginVertical: 10,
+    backgroundColor: '#fff',
+    borderRadius: 10
   },
   textStyle: {
     textAlign: 'center',
@@ -17,5 +21,11 @@ export default StyleSheet.create({
     fontSize: 20,
     marginTop: 20,
     fontFamily: 'Helvetica-Bold'
+  },
+  flatListContainer: {
+    backgroundColor: '#fff',
+    marginHorizontal: 10,
+    marginVertical: 10,
+    borderRadius: 10
   }
 });
