@@ -1,7 +1,12 @@
 import React from 'react';
-import { View } from 'react-native';
+import { View, Platform, Text } from 'react-native';
 import { Card, Button, FormLabel, FormInput } from 'react-native-elements';
+import Icon from 'react-native-vector-icons/Ionicons';
 import { saveToken } from '../../helpers/auth';
+import styles from './styles';
+import colors from '../colors';
+
+const iconName = Platform.OS === 'ios' ? 'ios-person-add' : 'md-person-add';
 
 const handleOnPress = (navigation) => {
   saveToken('user-token', 'auth-demo-token');
@@ -9,8 +14,16 @@ const handleOnPress = (navigation) => {
 };
 
 export default ({ navigation }) => (
-  <View style={{ paddingVertical: 20 }}>
-    <Card>
+  <View style={styles.container}>
+    <Text style={styles.textStyle}>Create Account</Text>
+    <View style={styles.iconContainer}>
+      <Icon
+        name={iconName}
+        color={colors.green}
+        size={80}
+      />
+    </View>
+    <Card containerStyle={styles.cardContainer}>
       <FormLabel>Email</FormLabel>
       <FormInput placeholder="Email address..." />
       <FormLabel>Password</FormLabel>
@@ -19,16 +32,17 @@ export default ({ navigation }) => (
       <FormInput secureTextEntry placeholder="Confirm Password..." />
 
       <Button
-        buttonStyle={{ marginTop: 20 }}
-        backgroundColor="#03A9F4"
-        title="SIGN UP"
+        buttonStyle={styles.button}
+        backgroundColor={colors.green}
+        textStyle={{ fontWeight: 'bold' }}
+        title="JOIN"
         onPress={() => handleOnPress(navigation)}
       />
       <Button
         buttonStyle={{ marginTop: 20 }}
         backgroundColor="transparent"
         textStyle={{ color: '#bcbec1' }}
-        title="Sign In"
+        title="LOGIN"
         onPress={() => navigation.navigate('SignIn')}
       />
     </Card>
