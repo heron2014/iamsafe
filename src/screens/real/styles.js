@@ -3,7 +3,8 @@ import colors from '../colors';
 
 export default StyleSheet.create({
   container: {
-    backgroundColor: colors.grayBackground,
+    paddingHorizontal: 20,
+    backgroundColor: '#8fc491',
     flex: 1
   },
   textContainer: {
@@ -14,10 +15,22 @@ export default StyleSheet.create({
   textStyle: {
     textAlign: 'center',
     fontWeight: 'bold',
-    color: colors.green,
+    color: '#fff',
     fontSize: 20,
     fontFamily: 'Helvetica-Bold',
     lineHeight: 30
+  },
+  contactContainer: {
+    borderBottomColor: '#fff',
+    padding: 10,
+    borderBottomWidth: 0.5,
+    borderStyle: 'solid'
+  },
+  contactText: {
+    textAlign: 'center',
+    fontWeight: 'bold',
+    fontSize: 20,
+    color: '#fff'
   },
   button: {
     ...Platform.select({
@@ -31,7 +44,7 @@ export default StyleSheet.create({
         elevation: 2
       }
     }),
-    borderRadius: 30,
-    backgroundColor: colors.green
+    marginTop: 30,
+    borderRadius: 30
   }
 });

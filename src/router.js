@@ -58,7 +58,12 @@ export const HomeStack = StackNavigator({
       },
       Real: { screen: Real,
         navigationOptions: {
-          tabBarVisible: false
+          tabBarVisible: false,
+          headerTintColor: '#fff',
+          headerStyle: {
+            backgroundColor: '#8fc491',
+            shadowOpacity: 0
+          }
         }
       },
       Tester: { screen: Tester,
