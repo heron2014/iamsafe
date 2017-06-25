@@ -7,15 +7,26 @@ export default StyleSheet.create({
     flex: 1
   },
   textContainer: {
-    justifyContent: 'center'
+    marginTop: 20,
+    justifyContent: 'center',
+    paddingHorizontal: 10
   },
   textStyle: {
     textAlign: 'center',
     fontWeight: 'bold',
     color: colors.green,
     fontSize: 20,
-    marginTop: 20,
-    fontFamily: 'Helvetica-Bold'
+    fontFamily: 'Helvetica-Bold',
+    lineHeight: 30
+  },
+  welcomeText: {
+    textAlign: 'center',
+    fontWeight: 'bold',
+    color: '#237923',
+    fontSize: 20,
+    fontFamily: 'Helvetica-Bold',
+    lineHeight: 30,
+    marginTop: 10
   },
   buttonsContainer: {
     flexGrow: 1,
@@ -44,7 +55,7 @@ export default StyleSheet.create({
   buttonTester: {
     justifyContent: 'center',
     alignSelf: 'center',
-    backgroundColor: '#c6c6c6',
+    backgroundColor: colors.lightGray,
     marginTop: 40,
     borderRadius: 50,
     height: 100,

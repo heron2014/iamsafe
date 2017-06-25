@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { FlatList } from 'react-native';
 import ListItem from '../common/ListItem';
+import colors from '../colors';
 
 class Contacts extends Component {
 
@@ -12,7 +13,7 @@ class Contacts extends Component {
     const { contacts } = this.props.contacts;
     return (
       <FlatList
-        style={{ backgroundColor: '#fff' }}
+        style={{ backgroundColor: colors.grayBackground }}
         data={contacts}
         renderItem={({ item }) =>
           <ListItem contact={item} onPress={() => this.handleRowPress(item)} />
