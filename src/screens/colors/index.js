@@ -7,5 +7,6 @@ export default {
   grayBackground: '#f2f3f7',
   rowUnderlay: 'rgba(154, 154, 154, 0.25)',
   green: '#99CC00',
-  darkGray: '#5b5a5a'
+  darkGray: '#5b5a5a',
+  lightGray: '#c6c6c6'
 };

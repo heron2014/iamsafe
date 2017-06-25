@@ -55,7 +55,7 @@ export default StyleSheet.create({
   buttonTester: {
     justifyContent: 'center',
     alignSelf: 'center',
-    backgroundColor: '#c6c6c6',
+    backgroundColor: colors.lightGray,
     marginTop: 40,
     borderRadius: 50,
     height: 100,

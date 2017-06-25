@@ -19,7 +19,7 @@ export default (props) => {
       { myList.length > 0
         && <Button
           buttonStyle={styles.button}
-          backgroundColor="#c6c6c6"
+          backgroundColor={colors.lightGray}
           textStyle={{ fontWeight: 'bold' }}
           title="SEND"
           onPress={() => console.log('confirm and send')}

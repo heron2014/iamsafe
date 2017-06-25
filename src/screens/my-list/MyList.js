@@ -42,7 +42,7 @@ class MyList extends Component {
             <ListItem key={contact.recordId} contact={contact} onPress={() => this.handleRowPress(contact)} />
           ))
           : <View style={styles.textContainer}>
-            <Text style={styles.textStyle}>Your list is empty! Create now by clicking the plus icon at the top!</Text>
+            <Text style={styles.textStyle}>Your list is empty. Create by clicking the plus icon at the top.</Text>
           </View>
         }
       </View>
