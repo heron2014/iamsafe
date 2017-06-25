@@ -39,11 +39,11 @@ class DetailsSection extends Component {
     const contact = this.props;
     return (
       <View style={styles.container}>
-        <View style={{ marginTop: 50 }}>
+        <View style={{ marginVertical: 50 }}>
           <Text style={styles.nameStyle}>{formatName(contact)}</Text>
         </View>
         <View style={{ flex: 1, justifyContent: 'center' }}>
-          <Text style={styles.infoText}>Please pick only mobile number.</Text>
+          <Text style={styles.infoText}>Please pick only (UK) mobile number (+447...)</Text>
           {this.state.phone_numbers.map((phone) => {
             const selectedBox = (value) => {
               const copyState = [...this.state.phone_numbers];
@@ -70,6 +70,7 @@ class DetailsSection extends Component {
               </Card>
             );
           })}
+          <Text style={[styles.infoText, { marginTop: 8, fontSize: 14, marginHorizontal: 10 }]}>We are currently working on supporting other numbers.</Text>
           <Button
             buttonStyle={styles.button}
             backgroundColor={colors.green}

@@ -3,7 +3,7 @@ import colors from '../colors';
 
 export default StyleSheet.create({
   container: {
-    backgroundColor: colors.grayBackground,
+    backgroundColor: colors.purple,
     flex: 1
   },
   textContainer: {
@@ -14,7 +14,7 @@ export default StyleSheet.create({
   textStyle: {
     textAlign: 'center',
     fontWeight: 'bold',
-    color: colors.green,
+    color: '#fff',
     fontSize: 20,
     fontFamily: 'Helvetica-Bold',
     lineHeight: 30
@@ -22,8 +22,9 @@ export default StyleSheet.create({
   welcomeText: {
     textAlign: 'center',
     fontWeight: 'bold',
-    color: '#237923',
-    fontSize: 20,
+    // textDecorationLine: 'underline',
+    color: '#fff',
+    fontSize: 26,
     fontFamily: 'Helvetica-Bold',
     lineHeight: 30,
     marginTop: 10
@@ -49,27 +50,6 @@ export default StyleSheet.create({
     paddingVertical: 16,
     borderRadius: 50,
     height: 120,
-    width: 120,
-    backgroundColor: colors.green
-  },
-  buttonTester: {
-    justifyContent: 'center',
-    alignSelf: 'center',
-    backgroundColor: colors.lightGray,
-    marginTop: 40,
-    borderRadius: 50,
-    height: 100,
-    width: 100,
-    ...Platform.select({
-      ios: {
-        shadowColor: 'rgba(0,0,0, 0.4)',
-        shadowOffset: { height: 1, width: 1 },
-        shadowOpacity: 1,
-        shadowRadius: 1
-      },
-      android: {
-        elevation: 2
-      }
-    })
+    width: 120
   }
 });

@@ -14,7 +14,7 @@ import Settings from './screens/settings';
 import Details from './screens/details';
 import MyList from './screens/my-list';
 
-import { capitalizeFirstLetter } from './helpers/index';
+// import { capitalizeFirstLetter } from './helpers/index';
 
 export const SignedOut = StackNavigator({
   SignUp: {
@@ -44,14 +44,14 @@ export const HomeStack = StackNavigator({
             <Icon
               style={{ paddingLeft: 8 }}
               name={Platform.OS === 'ios' ? 'ios-settings' : 'md-settings'}
-              color={colors.darkGray}
+              color="#fff"
               size={30}
               onPress={() => navigation.navigate('Settings')}
             />),
-          headerTintColor: colors.darkGray,
+          headerTintColor: '#fff',
           headerStyle: {
-            backgroundColor: '#fff',
-            shadowOpacity: 1,
+            backgroundColor: colors.purple,
+            shadowOpacity: 0,
             shadowColor: colors.green
           }
         })
@@ -68,7 +68,12 @@ export const HomeStack = StackNavigator({
       },
       Tester: { screen: Tester,
         navigationOptions: {
-          tabBarVisible: false
+          tabBarVisible: false,
+          headerTintColor: colors.purple,
+          headerStyle: {
+            backgroundColor: colors.lightGray,
+            shadowOpacity: 0
+          }
         }
       }
     })

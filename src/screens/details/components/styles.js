@@ -14,7 +14,7 @@ export default StyleSheet.create({
     textAlign: 'center',
     fontWeight: 'bold',
     fontFamily: 'Helvetica-Bold',
-    fontSize: 20
+    fontSize: 16
   },
   nameStyle: {
     color: '#fff',

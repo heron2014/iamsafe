@@ -4,7 +4,7 @@ import colors from '../colors';
 export default StyleSheet.create({
   container: {
     paddingHorizontal: 20,
-    backgroundColor: '#8fc491',
+    backgroundColor: colors.pastelGreen,
     flex: 1
   },
   textContainer: {
