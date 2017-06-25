@@ -5,12 +5,14 @@ import styles, { CHEVRON_SIZE } from './styles';
 import { capitalizeFirstLetter } from '../../helpers';
 import colors from '../colors';
 
-const ListItem = ({ contact, onPress }) => {
+const ListItem = ({ contact, onPress, isRemoving }) => {
   const iconName = Platform.OS === 'ios' ? 'ios-arrow-forward' : 'md-arrow-forward';
+  const removeIcon = Platform.Os === 'ios' ? 'ios-trash' : 'md-trash';
   const name = `${capitalizeFirstLetter(contact.firstname)} ${capitalizeFirstLetter(contact.surname)}`;
   return (
     <TouchableHighlight
       onPress={onPress}
+      disabled={isRemoving}
       underlayColor={colors.rowUnderlay}
     >
       <View style={styles.row}>
@@ -20,10 +22,11 @@ const ListItem = ({ contact, onPress }) => {
         </View>
         <View style={styles.chevronContainer}>
           <Icon
-            name={iconName}
+            onPress={isRemoving && onPress}
+            name={!isRemoving ? iconName : removeIcon}
             size={CHEVRON_SIZE}
             style={styles.chevron}
-            color={colors.green}
+            color={!isRemoving ? colors.purple : colors.red}
           />
         </View>
       </View>

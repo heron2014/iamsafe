@@ -24,15 +24,18 @@ class Contacts extends Component {
   render() {
     const { contacts } = this.props.contacts;
     return (
-      <FlatList
-        style={styles.flatListContainer}
-        data={contacts}
-        renderItem={({ item }) =>
-          <ListItem key={item.recordId} contact={item} onPress={() => this.handleRowPress(item)} />
-        }
-        keyExtractor={item => item.mobile_number}
-        ItemSeparatorComponent={this.renderSeparator}
-      />
+      <View style={styles.container}>
+        <FlatList
+          style={styles.flatListContainer}
+          data={contacts}
+          renderItem={({ item }) =>
+            <ListItem key={item.recordId} contact={item} onPress={() => this.handleRowPress(item)} />
+          }
+          keyExtractor={item => item.mobile_number}
+          ItemSeparatorComponent={this.renderSeparator}
+        />
+      </View>
+
     );
   }
 }

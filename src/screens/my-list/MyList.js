@@ -34,6 +34,10 @@ class MyList extends Component {
     this.props.navigation.navigate('Details', item);
   }
 
+  handleRemoveFromList = (contact) => {
+    this.props.removeContact(contact);
+  };
+
   renderSeparator = () => {
     return (
       <View
@@ -55,7 +59,7 @@ class MyList extends Component {
             style={styles.flatListContainer}
             data={myList}
             renderItem={({ item }) =>
-              <ListItem key={item.recordId} contact={item} onPress={() => this.handleRowPress(item)} />
+              <ListItem key={item.recordId} contact={item} onPress={() => this.handleRemoveFromList(item)} isRemoving />
             }
             keyExtractor={item => item.recordId}
             ItemSeparatorComponent={this.renderSeparator}
