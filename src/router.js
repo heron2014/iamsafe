@@ -13,10 +13,17 @@ import Tester from './screens/tester';
 import Settings from './screens/settings';
 import Details from './screens/details';
 import MyList from './screens/my-list';
+import Landing from './screens/landing';
 
 // import { capitalizeFirstLetter } from './helpers/index';
 
 export const SignedOut = StackNavigator({
+  Landing: {
+    screen: Landing,
+    navigationOptions: {
+      header: false
+    }
+  },
   SignUp: {
     screen: SignUp,
     navigationOptions: {
@@ -26,10 +33,7 @@ export const SignedOut = StackNavigator({
   SignIn: {
     screen: SignIn,
     navigationOptions: {
-      headerStyle: {
-        backgroundColor: colors.grayBackground,
-        shadowOpacity: 0 // border
-      }
+      header: false
     }
   }
 });

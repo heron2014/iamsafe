@@ -15,6 +15,13 @@ const handleOnPress = (navigation) => {
 
 export default ({ navigation }) => (
   <View style={styles.container}>
+    <Icon
+      style={{ paddingLeft: 10 }}
+      name={Platform.OS === 'ios' ? 'ios-arrow-back' : 'md-arrow-back'}
+      color={colors.green}
+      size={33}
+      onPress={() => navigation.goBack(null)}
+    />
     <Text style={styles.textStyle}>Create Account</Text>
     <View style={styles.iconContainer}>
       <Icon
