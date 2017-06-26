@@ -9,6 +9,13 @@ const iconName = Platform.OS === 'ios' ? 'ios-log-in' : 'md-log-in';
 
 export default ({ navigation }) => (
   <View style={styles.container}>
+    <Icon
+      style={{ paddingLeft: 10 }}
+      name={Platform.OS === 'ios' ? 'ios-arrow-back' : 'md-arrow-back'}
+      color={colors.green}
+      size={33}
+      onPress={() => navigation.goBack(null)}
+    />
     <Text style={styles.textStyle}>Login</Text>
     <View style={styles.iconContainer}>
       <Icon

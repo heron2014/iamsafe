@@ -19,6 +19,7 @@ Contacts.getAll((err, data) => {
       obj.phone_numbers = contact.phoneNumbers;
       obj.mobile_number = contact.phoneNumbers.filter(number => number.label === 'mobile');
       obj.home_number = contact.phoneNumbers.filter(number => number.label === 'home');
+      // TODO check for label === 'phone'
       return obj;
     }).filter((contact) => {
       return contact.mobile_number.length > 0;
