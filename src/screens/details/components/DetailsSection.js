@@ -7,6 +7,10 @@ import { toPhoneNumber, formatName } from '../../../helpers';
 import Row from './Row';
 import RadioButton from './RadioButton';
 
+const isContactAdded = (contactList, id) => {
+  return contactList.filter(person => person.recordId === id).length > 0 && true;
+};
+
 class DetailsSection extends Component {
   constructor(props) {
     super(props);
@@ -37,10 +41,14 @@ class DetailsSection extends Component {
 
   render() {
     const contact = this.props;
+    const myList = this.props.myList;
     return (
       <View style={styles.container}>
         <View style={{ marginVertical: 50 }}>
           <Text style={styles.nameStyle}>{formatName(contact)}</Text>
+          {isContactAdded(myList, contact.recordId) &&
+            <Text style={styles.warning}>You already added {contact.firstname}!</Text>
+          }
         </View>
         <View style={{ flex: 1, justifyContent: 'center' }}>
           <Text style={styles.infoText}>Please pick only (UK) mobile number (+447...)</Text>
@@ -53,9 +61,9 @@ class DetailsSection extends Component {
                   obj.selected = !value;
                 }
               });
+
               this.setState({ phone_numbers: this.state.phone_numbers });
             };
-
             return (
               <Card key={phone.number} containerStyle={styles.cardStyle}>
                 <TouchableOpacity onPress={() => selectedBox(!phone.selected)} >
@@ -70,8 +78,11 @@ class DetailsSection extends Component {
               </Card>
             );
           })}
-          <Text style={[styles.infoText, { marginTop: 8, fontSize: 14, marginHorizontal: 10 }]}>We are currently working on supporting other numbers.</Text>
+          <Text style={[styles.infoText, { marginTop: 8, fontSize: 14, marginHorizontal: 10 }]}>
+            We are currently working on supporting other numbers.
+          </Text>
           <Button
+            disabled={isContactAdded(myList, contact.recordId) }
             buttonStyle={styles.button}
             backgroundColor={colors.green}
             textStyle={{ fontWeight: 'bold' }}

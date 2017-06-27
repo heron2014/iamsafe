@@ -41,6 +41,12 @@ export default StyleSheet.create({
     borderRadius: 10,
     borderColor: colors.purple
   },
+  warning: {
+    textAlign: 'center',
+    fontSize: 16,
+    margin: 10,
+    color: '#f4f455'
+  },
   button: {
     ...Platform.select({
       ios: {
