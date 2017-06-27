@@ -2,6 +2,12 @@ import { connect } from 'react-redux';
 import DetailsSection from './DetailsSection';
 import { addContact } from '../../../redux/contacts/actions';
 
+const mapStateToProps = ({ contacts }) => {
+  return {
+    myList: contacts.myList
+  };
+};
+
 const mapDispatchToProps = (dispatch) => {
   return {
     addContact: (contact) => {
@@ -10,4 +16,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(null, mapDispatchToProps)(DetailsSection);
+export default connect(mapStateToProps, mapDispatchToProps)(DetailsSection);
