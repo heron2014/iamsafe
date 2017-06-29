@@ -24,18 +24,13 @@ export default StyleSheet.create({
     fontSize: 30
   },
   actionInfo: {
-    flexDirection: 'column',
-    justifyContent: 'center'
-  },
-  actionLabel: {
-    color: colors.subtleText,
-    fontSize: 12,
-    marginBottom: 3
+    justifyContent: 'center',
+    alignSelf: 'center'
   },
   actionBody: {
     fontSize: 16,
     color: colors.primaryText,
-    marginBottom: 5
+    fontWeight: 'bold'
   },
   cardStyle: {
     borderRadius: 10,

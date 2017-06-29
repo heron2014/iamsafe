@@ -10,8 +10,7 @@ const outerContainer = {
   borderColor: colors.darkGray,
   alignItems: 'center',
   justifyContent: 'center',
-  marginRight: 10,
-  marginTop: 10
+  marginRight: 10
 };
 
 const innerContainer = {
