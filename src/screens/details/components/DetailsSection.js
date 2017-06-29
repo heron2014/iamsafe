@@ -77,7 +77,6 @@ class DetailsSection extends Component {
                   <View style={{ flexDirection: 'row', marginLeft: 10 }}>
                     <RadioButton selected={phone.selected} />
                     <Row
-                      label={phone.label}
                       body={toPhoneNumber(phone.number)}
                     />
                   </View>
