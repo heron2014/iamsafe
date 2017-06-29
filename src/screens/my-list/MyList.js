@@ -57,8 +57,8 @@ class MyList extends Component {
           ? <FlatList
             style={styles.flatListContainer}
             data={myList}
-            renderItem={({ item }) =>
-              <ListItem key={item.recordId} contact={item} onPress={() => this.handleRemoveFromList(item)} isRemoving />
+            renderItem={({ item, index }) =>
+              <ListItem key={item.recordId} contact={item} onPress={() => this.handleRemoveFromList(item)} isRemoving myList index={index} />
             }
             keyExtractor={item => item.recordId}
             ItemSeparatorComponent={this.renderSeparator}

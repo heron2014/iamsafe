@@ -11,6 +11,10 @@ const isContactAdded = (contactList, id) => {
   return contactList.filter(person => person.recordId === id).length > 0 && true;
 };
 
+const isLengthListTen = (list) => {
+  return list.length === 10;
+};
+
 class DetailsSection extends Component {
   constructor(props) {
     super(props);
@@ -49,6 +53,9 @@ class DetailsSection extends Component {
           {isContactAdded(myList, contact.recordId) &&
             <Text style={styles.warning}>You already added {contact.firstname}!</Text>
           }
+          {isLengthListTen(myList) &&
+            <Text style={styles.warning}>Maximum 10 contacts allowed.</Text>
+          }
         </View>
         <View style={{ flex: 1, justifyContent: 'center' }}>
           <Text style={styles.infoText}>Please pick only (UK) mobile number (+447...)</Text>
@@ -82,7 +89,7 @@ class DetailsSection extends Component {
             We are currently working on supporting other numbers.
           </Text>
           <Button
-            disabled={isContactAdded(myList, contact.recordId) }
+            disabled={isContactAdded(myList, contact.recordId) || isLengthListTen(myList)}
             buttonStyle={styles.button}
             backgroundColor={colors.green}
             textStyle={{ fontWeight: 'bold' }}

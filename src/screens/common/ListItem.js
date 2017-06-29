@@ -5,7 +5,7 @@ import styles, { CHEVRON_SIZE } from './styles';
 import { formatName } from '../../helpers';
 import colors from '../colors';
 
-const ListItem = ({ contact, onPress, isRemoving }) => {
+const ListItem = ({ contact, onPress, isRemoving, index, myList }) => {
   const iconName = Platform.OS === 'ios' ? 'ios-arrow-forward' : 'md-arrow-forward';
   const removeIcon = Platform.Os === 'ios' ? 'ios-trash' : 'md-trash';
   return (
@@ -16,7 +16,7 @@ const ListItem = ({ contact, onPress, isRemoving }) => {
     >
       <View style={styles.row}>
         <View>
-          <Text style={styles.name}>{formatName(contact)}</Text>
+          <Text style={styles.name}>{myList && `${index + 1}.`} {formatName(contact)}</Text>
           <Text style={styles.phone}>{contact.mobile_number || contact.selectedPhoneNumber.number}</Text>
         </View>
         <View style={styles.chevronContainer}>
