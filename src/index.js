@@ -7,35 +7,38 @@ import { createRootNavigator } from './router';
 import { setContacts } from './redux/contacts/actions';
 
 // TODO not sure if this is the right place to fetch contacts
-Contacts.getAll((err, data) => {
-  if (err && err.type === 'permissionDenied') {
-    // handle it
-  } else {
-    const contacts = data.map((contact) => {
-      const obj = {};
-      obj.recordId = contact.recordID;
-      obj.firstname = contact.givenName;
-      obj.surname = contact.familyName;
-      obj.phone_numbers = contact.phoneNumbers;
-      obj.mobile_number = contact.phoneNumbers.filter(number => number.label === 'mobile');
-      obj.home_number = contact.phoneNumbers.filter(number => number.label === 'home');
-      // TODO check for label === 'phone'
-      return obj;
-    }).filter((contact) => {
-      return contact.mobile_number.length > 0;
-    }).map((contact) => {
-      const mobile_number = contact.mobile_number[0].number;
-      const home_number = contact.home_number[0] && contact.home_number[0].number;
-      return Object.assign({}, contact, {
-        mobile_number,
-        home_number
+function getContacts() {
+  Contacts.getAll((err, data) => {
+    if (err && err.type === 'permissionDenied') {
+      // handle it
+    } else {
+      const contacts = data.map((contact) => {
+        const obj = {};
+        obj.recordId = contact.recordID;
+        obj.firstname = contact.givenName;
+        obj.surname = contact.familyName;
+        obj.phone_numbers = contact.phoneNumbers;
+        obj.mobile_number = contact.phoneNumbers.filter(number => number.label === 'mobile');
+        obj.home_number = contact.phoneNumbers.filter(number => number.label === 'home');
+        // TODO check for label === 'phone'
+        return obj;
+      }).filter((contact) => {
+        return contact.mobile_number.length > 0;
+      }).map((contact) => {
+        const mobile_number = contact.mobile_number[0].number;
+        const home_number = contact.home_number[0] && contact.home_number[0].number;
+        return Object.assign({}, contact, {
+          mobile_number,
+          home_number
+        });
       });
-    });
-    store.dispatch(setContacts(contacts));
-  }
-});
+      store.dispatch(setContacts(contacts));
+    }
+  });
+}
 
-export default class App extends Component {
+
+class App extends Component {
   constructor(props) {
     super(props);
 
@@ -55,7 +58,10 @@ export default class App extends Component {
       }
     })
     .catch(err => console.log('error on getItem from AsyncStorage', err));
+  }
 
+  componentDidMount() {
+    getContacts();
   }
 
   render() {
@@ -74,3 +80,5 @@ export default class App extends Component {
     );
   }
 }
+
+export default App;
