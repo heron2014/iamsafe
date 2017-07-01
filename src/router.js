@@ -152,9 +152,9 @@ export const SignedIn = TabNavigator({
   }
 }, {
   tabBarOptions: {
-    activeTintColor: colors.green,
+    activeTintColor: '#fff',
     style: {
-      backgroundColor: '#fff',
+      backgroundColor: colors.green,
       borderTopColor: colors.green
     }
   }
