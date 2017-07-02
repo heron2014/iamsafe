@@ -43,7 +43,6 @@ export const HomeStack = StackNavigator({
     screen: StackNavigator({
       Home: { screen: Home,
         navigationOptions: ({ navigation }) => ({
-          title: 'Home',
           headerLeft: (
             <Icon
               style={{ paddingLeft: 8 }}
