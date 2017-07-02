@@ -83,18 +83,9 @@ export const HomeStack = StackNavigator({
   },
   Settings: {
     screen: Settings,
-    navigationOptions: ({ navigation }) => ({
-      tabBarVisible: false,
-      header: true,
-      headerLeft: (
-        <Icon
-          style={{ paddingLeft: 8 }}
-          name={Platform.OS === 'ios' ? 'ios-close' : 'md-close'}
-          color="#fff"
-          size={30}
-          onPress={() => navigation.goBack(null)}
-        />)
-    })
+    navigationOptions: {
+      tabBarVisible: false
+    }
   }
 }, {
   headerMode: 'none',
